@@ -204,7 +204,9 @@ export class Interpreter {
       } else {
         // Probablement un appel de fonction
         try {
-          this.evaluateExpression(line);
+          const result = this.evaluateExpression(line);
+          //Added this line to handle expressions that aren't function calls.
+          if(result !== undefined) this.output.push(this.stringify(result));
         } catch (error) {
           throw new Error(
             `Erreur à la ligne ${currentLine + 1}: ${error.message}`,
@@ -552,7 +554,7 @@ export class Interpreter {
 
     if (leftSide.includes("[")) {
       // Assignation à un élément de liste
-      const match = leftSide.match(/(\w+)\[([^\]]+)\]/);
+      const match = leftSide.match(/(\w+)\[(\d+)\]/);
       if (match) {
         const listName = match[1];
         const index = this.evaluateExpression(match[2]);

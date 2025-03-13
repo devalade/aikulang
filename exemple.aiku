@@ -1,12 +1,11 @@
-function test_de_function(x) 
+function tester(x = 1)
   afficher x
   retourner 1
 fin
 
 
-# Initialisation des stocks
 variable stock = liste(
-    liste("pomme", 10, 0.50),  # Nom, quantité, prix unitaire
+    liste("pomme", 10, 0.50),
     liste("banane", 15, 0.30),
     liste("orange", 8, 1.00)
 )
@@ -14,7 +13,6 @@ variable stock = liste(
 variable panier = liste()  # Panier vide au départ
 variable total = 0.0
 
-# Fonction pour trouver un produit dans le stock
 fonction trouver_produit(nom_produit)
     pour produit dans stock faire
         si produit[0] = nom_produit alors
@@ -24,7 +22,6 @@ fonction trouver_produit(nom_produit)
     retourner rien  # Si le produit n’est pas trouvé
 fin
 
-# Fonction pour ajouter un produit au panier
 fonction ajouter_au_panier(nom_produit, quantité)
     variable produit = trouver_produit(nom_produit)
     si produit = rien alors
@@ -38,7 +35,6 @@ fonction ajouter_au_panier(nom_produit, quantité)
     fin
 fin
 
-# Fonction pour calculer le total du panier
 fonction calculer_total()
     variable somme = 0.0
     pour article dans panier faire
@@ -47,7 +43,6 @@ fonction calculer_total()
     retourner somme
 fin
 
-# Programme principal
 afficher "Bienvenue au magasin !"
 
 ajouter_au_panier("pomme", 3)
@@ -60,11 +55,9 @@ pour article dans panier faire
     afficher article[0] + " x" + article[1] + " à " + article[2] + "€ par unité"
 fin
 
-# Calcul et affichage du total
 total = calculer_total()
 afficher "Total à payer : " + total + "€"
 
-# Afficher le stock restant
 afficher "Stock restant :"
 pour produit dans stock faire
     afficher produit[0] + " : " + produit[1] + " unité(s)"
