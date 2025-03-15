@@ -1,9 +1,3 @@
-function tester(x = 1)
-  afficher x
-  retourner 1
-fin
-
-
 variable stock = liste(
     liste("pomme", 10, 0.50),
     liste("banane", 15, 0.30),
@@ -19,19 +13,18 @@ fonction trouver_produit(nom_produit)
             retourner produit
         fin
     fin
-    retourner rien  # Si le produit n’est pas trouvé
+   retourner rien  # Si le produit n’est pas trouvé
 fin
 
-fonction ajouter_au_panier(nom_produit, quantité)
+fonction ajouter_au_panier(nom_produit, quantite)
     variable produit = trouver_produit(nom_produit)
     si produit = rien alors
-        afficher "Produit " + nom_produit + " non trouvé."
-    sinon si produit[1] >= quantité alors
-        ajouter liste(nom_produit, quantité, produit[2]) à panier
-        produit[1] = produit[1] - quantité  # Réduit le stock
-        afficher quantité + " " + nom_produit + "(s) ajouté(s) au panier."
+        afficher("Produit " + nom_produit + " non trouvé.")
+    sinon si produit[1] >= quantite alors
+        produit[1] = produit[1] - quantite  # Réduit le stock
+        afficher(quantite + " " + nom_produit + "(s) ajouté(s) au panier.")
     sinon
-        afficher "Pas assez de stock pour " + nom_produit + "."
+        afficher("Pas assez de stock pour " + nom_produit + ".")
     fin
 fin
 
@@ -43,22 +36,23 @@ fonction calculer_total()
     retourner somme
 fin
 
-afficher "Bienvenue au magasin !"
+afficher("Bienvenue au magasin !")
 
 ajouter_au_panier("pomme", 3)
 ajouter_au_panier("banane", 2)
 ajouter_au_panier("orange", 10)  # Pas assez en stock
 
 # Afficher le contenu du panier
-afficher "Contenu du panier :"
+afficher("Contenu du panier :")
 pour article dans panier faire
-    afficher article[0] + " x" + article[1] + " à " + article[2] + "€ par unité"
+    afficher(article[0] + " x" + article[1] + " à " + article[2] + "€ par unité")
 fin
 
 total = calculer_total()
-afficher "Total à payer : " + total + "€"
+afficher("Total à payer : " + total + "€")
 
-afficher "Stock restant :"
+afficher("Stock restant :")
+
 pour produit dans stock faire
-    afficher produit[0] + " : " + produit[1] + " unité(s)"
+    afficher(produit[0] + " : " + produit[1] + " unité(s)")
 fin

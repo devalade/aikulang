@@ -1,0 +1,187 @@
+Hey Javascript Expert,
+
+I'm trying to create a new programming language.
+
+
+---
+
+
+## **1. Variable Declaration**
+### **Syntax:**
+```
+variable <nom> = <valeur>
+```
+- Variables can store numbers, strings, lists, or functions.
+- Example:
+  ```
+  variable total = 0.0
+  variable nom = "Aladé"
+  variable liste_de_nombres = liste(1, 2, 3, 4, 5)
+  ```
+
+---
+
+## **2. List Declaration**
+### **Syntax:**
+```
+liste(<élément1>, <élément2>, ...)
+```
+- Lists allow storing multiple values in a sequence.
+- Example:
+  ```
+  variable fruits = liste("pomme", "banane", "orange")
+  variable stock = liste(
+      liste("pomme", 10, 0.50),
+      liste("banane", 15, 0.30),
+      liste("orange", 8, 1.00)
+  )
+  ```
+
+---
+
+## **3. Function Definition**
+### **Syntax:**
+```
+fonction <nom>(<paramètres>)
+    <bloc de code>
+fin
+```
+- Functions allow code reuse.
+- Example:
+  ```
+  fonction saluer(nom)
+      afficher("Bonjour " + nom + "!")
+  fin
+
+  saluer("Aladé")  # Affiche : Bonjour Aladé !
+  ```
+
+---
+
+## **4. Conditionals**
+### **Syntax:**
+```
+si <condition> alors
+    <bloc de code>
+sinon
+    <bloc de code>
+fin
+```
+- Conditional statements control the flow of the program.
+- Example:
+  ```
+  si total > 100 alors
+      afficher("Réduction appliquée")
+  sinon
+      afficher("Pas de réduction")
+  fin
+  ```
+
+---
+
+## **5. Loops**
+### **Syntax:**
+```
+pour <variable> dans <liste> faire
+    <bloc de code>
+fin
+```
+- Loops allow iteration over lists.
+- Example:
+  ```
+  pour fruit dans fruits faire
+      afficher("J'ai un(e) " + fruit)
+  fin
+  ```
+
+---
+
+## **6. Function Calls**
+### **Syntax:**
+```
+<nom_fonction>(<paramètres>)
+```
+- Example:
+  ```
+  ajouter_au_panier("pomme", 3)
+  ```
+
+---
+
+## **7. Display Output**
+### **Syntax:**
+```
+afficher(<message>)
+```
+- Example:
+  ```
+  afficher("Bienvenue au magasin !")
+  ```
+
+---
+
+## **8. Arithmetic Operations**
+### **Syntax:**
+```
++ , - , * , /
+```
+- Example:
+  ```
+  variable total = prix * quantité
+  ```
+
+---
+
+## **9. Returning Values in Functions**
+### **Syntax:**
+```
+retourner <valeur>
+```
+- Example:
+  ```
+  fonction addition(a, b)
+      retourner a + b
+  fin
+  ```
+
+---
+
+## **10. Comments**
+### **Syntax:**
+```
+# Ceci est un commentaire
+```
+- Example:
+  ```
+  # Ceci est une ligne de commentaire
+  variable x = 5  # Ceci est aussi un commentaire
+  ```
+
+---
+
+## **11. Implement Everything in JavaScript**
+- All these rules should be **implemented in JavaScript**.
+- The developer should write a **parser and interpreter in JavaScript**.
+
+---
+
+## **12. Follow TDD (Test-Driven Development)**
+- **Write tests first** before implementing any function.
+- Use **Vitest** for testing.
+- Example workflow for `ajouter_au_panier` function:
+  1. **Write the test**
+     ```js
+     test("Ajout de produit au panier", () => {
+         const panier = [];
+         ajouterAuPanier(panier, "pomme", 2);
+         expect(panier.length).toBe(1);
+         expect(panier[0].nom).toBe("pomme");
+     });
+     ```
+  2. **Run the test (it should fail)**
+  3. **Implement the function to pass the test**
+  4. **Run the test again (it should pass)**
+  5. **Refactor if needed**
+
+---
+
